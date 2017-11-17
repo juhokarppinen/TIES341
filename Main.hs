@@ -26,8 +26,8 @@ import Data.Monoid
 import System.IO
 import System.Environment
 import System.FilePath
-import qualified Data.Text    as Text
-import qualified Data.Text.IO as Text
+import qualified Data.Text    as T
+import qualified Data.Text.IO as T
 
 {- NOTES
 
@@ -39,8 +39,8 @@ fromGregorian :: Integer -> Int -> Int -> Day
 -}
 data Entry = Entry { 
     getDate :: Day,
-    getName :: Text.Text,
-    getPlace :: Text.Text
+    getName :: T.Text,
+    getPlace :: T.Text
     } deriving Show
 
 
@@ -57,29 +57,29 @@ main = do
 
 
 -- Read Text data from a speficied filepath and return it as a list of lines.
-readDataToList :: String -> IO [Text.Text]
+readDataToList :: String -> IO [T.Text]
 readDataToList file = do
-    dataLines <- fmap Text.lines (Text.readFile file)
+    dataLines <- fmap T.lines (T.readFile file)
     return dataLines
 
 
 -- Append a list of lines into a file.
-appendToFile :: String -> [Text.Text] -> IO ()
+appendToFile :: String -> [T.Text] -> IO ()
 appendToFile file lines = do
-    let lines2 = fmap (flip Text.snoc $ '\n') lines
-    mapM_ (Text.appendFile file) lines2
+    let lines2 = fmap (flip T.snoc $ '\n') lines
+    mapM_ (T.appendFile file) lines2
 
 
 -- Pretty print a list of IO lines.
-printLines :: IO [Text.Text] -> IO ()
+printLines :: IO [T.Text] -> IO ()
 printLines t = do
     textLines <- t
-    mapM_ Text.putStrLn textLines
+    mapM_ T.putStrLn textLines
 
 
 -- Return a Day into a Finnish formatted text representation.
-showDateFinnishFormat :: Day -> Text.Text
-showDateFinnishFormat d = Text.pack $ 
+showDateFinnishFormat :: Day -> T.Text
+showDateFinnishFormat d = T.pack $ 
                           Data.List.intercalate "." $ 
                           Data.List.reverse $ 
                           Data.List.Split.splitOn "-" $ 
@@ -88,7 +88,7 @@ showDateFinnishFormat d = Text.pack $
 
 -- Parse a Finnish formatted text representation of a date into a Day.
 -- Brittle first implementation.
-parseDay :: Text.Text -> Maybe Day
+parseDay :: T.Text -> Maybe Day
 parseDay t = case (Data.List.Split.splitOn "." $ unpack t) of
     d:(m:(y:[])) -> Just $ fromGregorian
         ((read y)::Integer)
