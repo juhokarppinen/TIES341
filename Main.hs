@@ -10,6 +10,11 @@
 module Main where
 
 import Control.Monad
+import Data.Char
+import Data.List
+import Data.List.Split
+import Data.Text
+import Data.Time
 import Data.Monoid
 import System.IO
 import System.Environment
@@ -18,6 +23,29 @@ import qualified Data.Text    as Text
 import qualified Data.Text.IO as Text
 
 l = readDataToList inputFile
+
+{- NOTES
+
+fromGregorian :: Integer -> Int -> Int -> Day
+
+    Convert from proleptic Gregorian calendar. First argument is year, 
+    second month number (1-12), third day (1-31). Invalid values will be 
+    clipped to the correct range, month first, then day.
+-}
+data Entry = Entry { 
+    getDate :: Day,
+    getName :: Text.Text,
+    getPlace :: Text.Text
+    } deriving Show
+
+
+showDateFinnishFormat :: Day -> Text.Text
+showDateFinnishFormat d = Text.pack $ 
+                          Data.List.intercalate "." $ 
+                          Data.List.reverse $ 
+                          Data.List.Split.splitOn "-" $ 
+                          show d
+
 
 inputFile :: String
 inputFile = "data/gig-data.txt"
