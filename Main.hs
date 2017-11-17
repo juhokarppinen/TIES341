@@ -1,8 +1,10 @@
-{-  Text-to-HTML
-    A simple Haskell project for TIES341 Functional Programming 2
-
-    By Juho Karppinen 2017
-
+{-  
+    +---------------------------------------------------------------+
+    | Text-to-HTML                                                  |
+    | A simple Haskell project for TIES341 Functional Programming 2 |
+    |                                                               |
+    | By Juho Karppinen 2017                                        |
+    +---------------------------------------------------------------+
 
     This program reads a data file and outputs the contents formatted as HTML 
     tables. 
@@ -42,26 +44,6 @@ data Entry = Entry {
     } deriving Show
 
 
--- Return a Day into a Finnish formatted text representation.
-showDateFinnishFormat :: Day -> Text.Text
-showDateFinnishFormat d = Text.pack $ 
-                          Data.List.intercalate "." $ 
-                          Data.List.reverse $ 
-                          Data.List.Split.splitOn "-" $ 
-                          show d
-
-
--- Parse a Finnish formatted text representation of a date into a Day.
--- Brittle first implementation.
-parseDay :: Text.Text -> Maybe Day
-parseDay t = case (Data.List.Split.splitOn "." $ unpack t) of
-    d:(m:(y:[])) -> Just $ fromGregorian
-        ((read y)::Integer)
-        ((read m)::Int)
-        ((read d)::Int) 
-    otherwise    -> Nothing
-
-
 inputFile :: String
 inputFile = "data/gig-data.txt"
 
@@ -95,7 +77,29 @@ printLines t = do
     mapM_ Text.putStrLn textLines
 
 
+-- Return a Day into a Finnish formatted text representation.
+showDateFinnishFormat :: Day -> Text.Text
+showDateFinnishFormat d = Text.pack $ 
+                          Data.List.intercalate "." $ 
+                          Data.List.reverse $ 
+                          Data.List.Split.splitOn "-" $ 
+                          show d
+
+
+-- Parse a Finnish formatted text representation of a date into a Day.
+-- Brittle first implementation.
+parseDay :: Text.Text -> Maybe Day
+parseDay t = case (Data.List.Split.splitOn "." $ unpack t) of
+    d:(m:(y:[])) -> Just $ fromGregorian
+        ((read y)::Integer)
+        ((read m)::Int)
+        ((read d)::Int) 
+    otherwise    -> Nothing
+
+
 -- Perform a functor operation to a functor inside a monad.
+-- Useful for various IO [Text] objects I'm bound to come across.
+--
 -- For example:
 --
 --      fmapM reverse $ readDataToList inputFile
