@@ -27,8 +27,6 @@ import System.FilePath
 import qualified Data.Text    as Text
 import qualified Data.Text.IO as Text
 
-l = readDataToList inputFile
-
 {- NOTES
 
 fromGregorian :: Integer -> Int -> Int -> Day
@@ -54,10 +52,10 @@ showDateFinnishFormat d = Text.pack $
 
 
 -- Parse a Finnish formatted text representation of a date into a Day.
--- WIP
+-- Brittle first implementation.
 parseDay :: Text.Text -> Maybe Day
-parseDay t = case (Data.List.Split.splitOn "." $ show t) of
-    d:(m:(y:[])) -> Just $ fromGregorian 
+parseDay t = case (Data.List.Split.splitOn "." $ unpack t) of
+    d:(m:(y:[])) -> Just $ fromGregorian
         ((read y)::Integer)
         ((read m)::Int)
         ((read d)::Int) 
