@@ -5,7 +5,12 @@
 
 
     This program reads a data file and outputs the contents formatted as HTML 
-    tables. -}
+    tables. 
+
+    Non-base dependencies:
+
+        Data.Time.Split (install split)
+-}
 
 module Main where
 
@@ -39,12 +44,24 @@ data Entry = Entry {
     } deriving Show
 
 
+-- Return a Day into a Finnish formatted text representation.
 showDateFinnishFormat :: Day -> Text.Text
 showDateFinnishFormat d = Text.pack $ 
                           Data.List.intercalate "." $ 
                           Data.List.reverse $ 
                           Data.List.Split.splitOn "-" $ 
                           show d
+
+
+-- Parse a Finnish formatted text representation of a date into a Day.
+-- WIP
+parseDay :: Text.Text -> Maybe Day
+parseDay t = case (Data.List.Split.splitOn "." $ show t) of
+    d:(m:(y:[])) -> Just $ fromGregorian 
+        ((read y)::Integer)
+        ((read m)::Int)
+        ((read d)::Int) 
+    otherwise    -> Nothing
 
 
 inputFile :: String
