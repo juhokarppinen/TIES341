@@ -44,9 +44,17 @@ data Entry = Entry {
     } deriving Show
 
 
+-- Initial hardcoded filepath.
+configFile :: String
+configFile = "conf/config.cnf"
+
+
+-- Initial hardcoded filepath.
 inputFile :: String
 inputFile = "data/gig-data.txt"
 
+
+-- Initial hardcoded filepath.
 outputFile :: String
 outputFile = "html/gigs.html"
 
@@ -57,8 +65,8 @@ main = do
 
 
 -- Read Text data from a speficied filepath and return it as a list of lines.
-readDataToList :: String -> IO [T.Text]
-readDataToList file = do
+readData :: String -> IO [T.Text]
+readData file = do
     dataLines <- fmap T.lines (T.readFile file)
     return dataLines
 
@@ -70,22 +78,31 @@ appendToFile file lines = do
     mapM_ (T.appendFile file) lines2
 
 
--- Pretty print a list of IO lines.
-printLines :: IO [T.Text] -> IO ()
+-- Pretty print a list of showable IO objects.
+printLines :: Show a => IO [a] -> IO ()
 printLines t = do
     textLines <- t
-    mapM_ T.putStrLn textLines
+    mapM_ (putStrLn . show) textLines
+
+
+-- Read headers from a config file.
+readHeaders :: String -> IO [T.Text]
+readHeaders file = do
+    headerLines <- fmap T.lines (T.readFile file)
+    return headerLines
 
 
 -- Generate a list containing an HTML table, whose contents are based
 -- on the given list.
 generateTable :: IO [T.Text] -> IO [T.Text]
-generateTable t = undefined
+generateTable texts = undefined
+
+
 
 
 -- Return a Day into a Finnish formatted text representation.
 showDateFinnishFormat :: Day -> T.Text
-showDateFinnishFormat d = T.pack $ 
+showDateFinnishFormat d = pack $ 
                           Data.List.intercalate "." $ 
                           Data.List.reverse $ 
                           Data.List.Split.splitOn "-" $ 
