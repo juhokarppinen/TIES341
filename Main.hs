@@ -37,10 +37,15 @@ fromGregorian :: Integer -> Int -> Int -> Day
     clipped to the correct range, month first, then day.
 -}
 data Entry = Entry { 
-    getDate :: Maybe Day,
-    getName :: Maybe String,
-    getPlace :: Maybe String
+    getDate :: Day,
+    getName :: String,
+    getPlace :: String
     } deriving Show
+
+
+instance Monoid Day where
+    mempty = fromGregorian 0 0 0
+    mappend a b = max a b
 
 
 -- Initial hardcoded filepath.
@@ -81,7 +86,7 @@ parse s = getEntryFromParse $ readP_to_S parseEntry s
 -- Unpack the data structure from a parsing result.
 getEntryFromParse :: [(Entry,String)] -> Entry
 getEntryFromParse p = case p of
-    []        -> Entry Nothing Nothing Nothing
+    []        -> Entry mempty mempty mempty
     otherwise -> fst $ p !! 0
 
 
@@ -94,7 +99,7 @@ parseEntry = do
     string " \8211 "
     place <- many1 $ satisfy isValidChar
     eof 
-    return $ Entry (parseDay day) (Just name) (Just place)
+    return $ Entry (parseDay day) name place
 
 
 isValidChar :: Char -> Bool
@@ -159,13 +164,13 @@ showDateFinnishFormat d = Data.List.intercalate "." $
 
 -- Parse a Finnish formatted text representation of a date into a Day.
 -- Brittle first implementation.
-parseDay :: String -> Maybe Day
+parseDay :: String -> Day
 parseDay t = case (Data.List.Split.splitOn "." $ t) of
-    d:(m:(y:[])) -> Just $ fromGregorian
+    d:(m:(y:[])) -> fromGregorian
         ((read y)::Integer)
         ((read m)::Int)
         ((read d)::Int) 
-    otherwise    -> Nothing
+    otherwise    -> mempty
 
 
 -- Perform a functor operation to a functor inside a monad.
