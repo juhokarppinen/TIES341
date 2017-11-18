@@ -11,7 +11,7 @@
 
     Non-base dependencies:
 
-        Data.Time.Split (install split)
+        Data.List.Split (install split)
 -}
 
 module Main where
@@ -20,14 +20,11 @@ import Control.Monad
 import Data.Char
 import Data.List
 import Data.List.Split
-import Data.Text
 import Data.Time
 import Data.Monoid
 import System.IO
 import System.Environment
 import System.FilePath
-import qualified Data.Text    as T
-import qualified Data.Text.IO as T
 
 {- NOTES
 
@@ -39,8 +36,8 @@ fromGregorian :: Integer -> Int -> Int -> Day
 -}
 data Entry = Entry { 
     getDate :: Day,
-    getName :: T.Text,
-    getPlace :: T.Text
+    getName :: String,
+    getPlace :: String
     } deriving Show
 
 
@@ -69,18 +66,18 @@ main = do
     putStrLn "Hello world"
 
 
--- Read text from a file and return it as a list of lines.
-readToList :: String -> IO [T.Text]
+-- Return a file's contents as a list of lines.
+readToList :: String -> IO [String]
 readToList file = do
-    ls <- fmap T.lines (T.readFile file)
+    ls <- fmap lines (readFile file)
     return ls
 
 
 -- Append a list of lines into a file.
-appendToFile :: String -> [T.Text] -> IO ()
+appendToFile :: String -> [String] -> IO ()
 appendToFile file lines = do
-    let lines2 = fmap (flip T.snoc $ '\n') lines
-    mapM_ (T.appendFile file) lines2
+    let lines2 = fmap (++ "\n") lines
+    mapM_ (appendFile file) lines2
 
 
 -- Pretty print a list of showable IO objects.
@@ -90,18 +87,28 @@ printLines t = do
     mapM_ (putStrLn . show) textLines
 
 
--- Generate a list containing an HTML table, whose contents are based
--- on the given list.
-generateTable :: IO [T.Text] -> IO [T.Text]
-generateTable texts = undefined
+-- Generate an HTML table as a list of lines. 
+generateTable :: IO [String] -> IO [String]
+generateTable texts = do
+    t0 <- fmapM (fmap (enclose "th")) $ readToList configFile
+    let headers = encloseL "tr" t0
+
+    return $ encloseL "table" headers
+    
+
+-- Enclose a String in HTML tags.
+enclose :: String -> String -> String
+enclose tag txt = "<" ++ tag ++ ">" ++ txt ++ "</" ++ tag ++ ">"
 
 
+-- Enclose a [String] in HTML tags.
+encloseL :: String -> [String] -> [String]
+encloseL tag txts = ["<" ++ tag ++ ">"] ++ txts ++ ["</" ++ tag ++ ">"]
 
 
 -- Return a Day into a Finnish formatted text representation.
-showDateFinnishFormat :: Day -> T.Text
-showDateFinnishFormat d = pack $ 
-                          Data.List.intercalate "." $ 
+showDateFinnishFormat :: Day -> String
+showDateFinnishFormat d = Data.List.intercalate "." $ 
                           Data.List.reverse $ 
                           Data.List.Split.splitOn "-" $ 
                           show d
@@ -109,8 +116,8 @@ showDateFinnishFormat d = pack $
 
 -- Parse a Finnish formatted text representation of a date into a Day.
 -- Brittle first implementation.
-parseDay :: T.Text -> Maybe Day
-parseDay t = case (Data.List.Split.splitOn "." $ unpack t) of
+parseDay :: String -> Maybe Day
+parseDay t = case (Data.List.Split.splitOn "." $ t) of
     d:(m:(y:[])) -> Just $ fromGregorian
         ((read y)::Integer)
         ((read m)::Int)
