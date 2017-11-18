@@ -25,6 +25,7 @@ import Data.Monoid
 import System.IO
 import System.Environment
 import System.FilePath
+import Text.ParserCombinators.ReadP
 
 {- NOTES
 
@@ -35,9 +36,9 @@ fromGregorian :: Integer -> Int -> Int -> Day
     clipped to the correct range, month first, then day.
 -}
 data Entry = Entry { 
-    getDate :: Day,
-    getName :: String,
-    getPlace :: String
+    getDate :: Maybe Day,
+    getName :: Maybe String,
+    getPlace :: Maybe String
     } deriving Show
 
 
@@ -63,7 +64,33 @@ d = readToList inputFile
 
 main :: IO ()
 main = do
-    putStrLn "Hello world"
+    entryData <- readToList inputFile
+    let entries = map parse entryData
+    (putStrLn . show) entries
+
+
+-- Parse a String into an Entry.
+parse :: String -> Entry
+parse s = getEntryFromParse $ readP_to_S parseEntry s
+
+
+-- Unpack the data structure from a parsing result.
+getEntryFromParse :: [(Entry,String)] -> Entry
+getEntryFromParse p = case p of
+    []        -> Entry Nothing Nothing Nothing
+    otherwise -> fst $ p !! 0
+
+
+-- The parser combinator for the Entry data type.
+parseEntry :: ReadP Entry
+parseEntry = do
+    day <- many1 $ satisfy (/= ' ')
+    satisfy (== ' ')
+    name <- many1 $ satisfy (/= '\8211')
+    string "\8211 "
+    place <- many1 $ satisfy isAscii
+    eof 
+    return $ Entry (parseDay day) (Just name) (Just place)
 
 
 -- Return a file's contents as a list of lines.
@@ -92,7 +119,7 @@ generateTable :: IO [String] -> IO [String]
 generateTable texts = do
     t0 <- fmapM (fmap (enclose "th")) $ readToList configFile
     let headers = encloseL "tr" t0
-
+    -- TODO : Add data here
     return $ encloseL "table" headers
     
 
