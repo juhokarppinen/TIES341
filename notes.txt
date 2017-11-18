@@ -1,0 +1,29 @@
+<table>  
+  <tr>
+    <th>Header1</th>
+    <th>Header2</th> 
+    <th>Header3</th>
+  </tr>
+  <tr>
+    <td>Data11</td>
+    <td>Data12</td> 
+    <td>Data13</td>
+  </tr>
+  <tr>
+    <td>Data21</td>
+    <td>Data22</td> 
+    <td>Data23</td>
+  </tr>
+</table>
+
+- Aloitetaan <table>-tägillä
+
+- Headerit muodostetaan koodissa konffin perusteella
+---- Lista alustetaan <tr>-tägillä, tuupataan jonoon
+     headerit <th>-tägien väliin ja lopetetaan </tr>-tägillä
+
+- Data luetaan Entry-objekteista
+---- Lista alustetaan <tr>-tägillä, tuupataan jonoon datat
+     <td>-tägien väliin ja lopetataan </tr>-tägillä
+
+- Lopetetaan </table>-tägillä

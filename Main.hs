@@ -77,6 +77,12 @@ printLines t = do
     mapM_ T.putStrLn textLines
 
 
+-- Generate a list containing an HTML table, whose contents are based
+-- on the given list.
+generateTable :: IO [T.Text] -> IO [T.Text]
+generateTable t = undefiend
+
+
 -- Return a Day into a Finnish formatted text representation.
 showDateFinnishFormat :: Day -> T.Text
 showDateFinnishFormat d = T.pack $ 
