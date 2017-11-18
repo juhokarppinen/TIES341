@@ -27,7 +27,8 @@ import System.Environment
 import System.FilePath
 import Text.ParserCombinators.ReadP
 
-{- NOTES
+{- 
+NOTES
 
 fromGregorian :: Integer -> Int -> Int -> Day
 
@@ -62,11 +63,14 @@ h = readToList configFile
 d = readToList inputFile
 -----------------------
 
+
 main :: IO ()
 main = do
-    entryData <- readToList inputFile
-    let entries = map parse entryData
-    (putStrLn . show) entries
+    entryData <- readToList inputFile -- Read input data
+    let entries = map parse entryData -- Parse input data
+    ls <- generateTable entries
+    mapM_ putStrLn ls -- Print output HTML
+    -- mapM_ (putStrLn.show) entries -- Print entries
 
 
 -- Parse a String into an Entry.
@@ -86,11 +90,23 @@ parseEntry :: ReadP Entry
 parseEntry = do
     day <- many1 $ satisfy (/= ' ')
     satisfy (== ' ')
-    name <- many1 $ satisfy (/= '\8211')
-    string "\8211 "
-    place <- many1 $ satisfy isAscii
+    name <- many1 $ satisfy isValidChar
+    string " \8211 "
+    place <- many1 $ satisfy isValidChar
     eof 
     return $ Entry (parseDay day) (Just name) (Just place)
+
+
+isValidChar :: Char -> Bool
+isValidChar c = any (c ==) validChars
+
+
+validChars :: String
+validChars = 
+    "abcdefghijklmnopqrstuvwxyzåäö" ++
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ" ++
+    "0123456789" ++
+    "-._~:/?#[]@!$&'()*+,;= " 
 
 
 -- Return a file's contents as a list of lines.
@@ -115,8 +131,8 @@ printLines t = do
 
 
 -- Generate an HTML table as a list of lines. 
-generateTable :: IO [String] -> IO [String]
-generateTable texts = do
+generateTable :: [Entry] -> IO [String]
+generateTable entries = do
     t0 <- fmapM (fmap (enclose "th")) $ readToList configFile
     let headers = encloseL "tr" t0
     -- TODO : Add data here
