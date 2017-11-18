@@ -80,7 +80,7 @@ printLines t = do
 -- Generate a list containing an HTML table, whose contents are based
 -- on the given list.
 generateTable :: IO [T.Text] -> IO [T.Text]
-generateTable t = undefiend
+generateTable t = undefined
 
 
 -- Return a Day into a Finnish formatted text representation.
