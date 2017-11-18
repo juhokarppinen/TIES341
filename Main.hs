@@ -59,16 +59,21 @@ outputFile :: String
 outputFile = "html/gigs.html"
 
 
+-- Testing shortcuts --
+h = readToList configFile
+d = readToList inputFile
+-----------------------
+
 main :: IO ()
 main = do
     putStrLn "Hello world"
 
 
--- Read Text data from a speficied filepath and return it as a list of lines.
-readData :: String -> IO [T.Text]
-readData file = do
-    dataLines <- fmap T.lines (T.readFile file)
-    return dataLines
+-- Read text from a file and return it as a list of lines.
+readToList :: String -> IO [T.Text]
+readToList file = do
+    ls <- fmap T.lines (T.readFile file)
+    return ls
 
 
 -- Append a list of lines into a file.
@@ -83,13 +88,6 @@ printLines :: Show a => IO [a] -> IO ()
 printLines t = do
     textLines <- t
     mapM_ (putStrLn . show) textLines
-
-
--- Read headers from a config file.
-readHeaders :: String -> IO [T.Text]
-readHeaders file = do
-    headerLines <- fmap T.lines (T.readFile file)
-    return headerLines
 
 
 -- Generate a list containing an HTML table, whose contents are based
