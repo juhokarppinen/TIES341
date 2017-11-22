@@ -75,6 +75,7 @@ main = do
     entryData <- readToList inputFile -- Read input data
     let entries = map parse entryData -- Parse input data
     ls <- generateTable entries -- Generate HTML table from entries
+
     clearFile outputFile
     appendToFile outputFile ls
     -- putStrLn . show $ ls -- Print output list
@@ -96,23 +97,19 @@ getEntryFromParse p = case p of
 
 -- The parser combinator for the Entry data type.
 parseEntry :: ReadP Entry
-parseEntry = do
-    day <- many1 $ satisfy (/= ' ')
-    satisfy (== ' ')
-    name <- many1 $ satisfy isValidChar
-    string " \8211 "
-    place <- many1 $ satisfy isValidChar
-    eof 
-    return $ Entry (parseDay day) name place
-
-
--- Check if a character is valid.
-isValidChar :: Char -> Bool
-isValidChar c = any (c ==) $ 
-    "abcdefghijklmnopqrstuvwxyzåäö" ++
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ" ++
-    "0123456789" ++
-    "-–._~:/?#[]@!$&'()*+,;=\"`´’” "
+parseEntry = 
+    do
+        day <- many1 $ satisfy (/= ' ')
+        satisfy (== ' ')
+        name <- many1 $ satisfy isValidChar
+        string " \8211 "
+        place <- many1 $ satisfy isValidChar
+        eof 
+        return $ Entry (parseDay day) name place
+    where
+        isValidChar c = any (c ==) $ 
+            "abcdefghijklmnopqrstuvwxyzåäöABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ" ++
+            "0123456789 -–._~:/?#[]@!$&'()*+,;=\"`´’”" 
 
 
 -- Return a file's contents as a list of lines.
