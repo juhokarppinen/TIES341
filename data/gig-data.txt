@@ -13,10 +13,10 @@
 27.11.2012 Tommi Soidinmäki & Energia – Hotelli Isovalkeinen, Kuopio
 30.11.2012 Tommi Soidinmäki & Energia – Yksityistilaisuus, Pori
 14.12.2012 Energia – Yksityistilaisuus, Jyväskylä
-15.12.2012 Tommi Soidinmäki & Energia- Urjanlinna, Sievi
-8.1.2013 Tommi Soidinmäki & Energia – Viking XPRS, Helsinki-Tallinna
-9.1.2013 Tommi Soidinmäki & Energia – Viking XPRS, Helsinki-Tallinna
-10.1.2013 Tommi Soidinmäki & Energia – Viking XPRS, Helsinki-Tallinna
+15.12.2012 Tommi Soidinmäki & Energia – Urjanlinna, Sievi
+8.1.2013 Tommi Soidinmäki & Energia – Viking XPRS, Helsinki
+9.1.2013 Tommi Soidinmäki & Energia – Viking XPRS, Helsinki
+10.1.2013 Tommi Soidinmäki & Energia – Viking XPRS, Helsinki
 19.1.2013 Tommi Soidinmäki & Energia – Latosaari, Lapua
 26.1.2013 Tommi Soidinmäki & Energia – Wanhankellari, Helsinki
 27.1.2013 Tommi Soidinmäki & Energia – Kivistön työväentalo, Jyväskylä
@@ -40,10 +40,10 @@
 25.5.2013 Tommi Soidinmäki & Energia – Valasranta, Yläne
 7.6.2013 Tommi Soidinmäki & Energia – Pavi, Vantaa
 15.6.2013 Tommi Soidinmäki & Energia – Hangan lava, Hankasalmi
-16.6.2013 Tommi Soidinmäki & Energia – Silja Europa, Helsinki-Visby 
-17.6.2013 Tommi Soidinmäki & Energia – Silja Europa, Helsinki-Visby 
-18.6.2013 Tommi Soidinmäki & Energia – Silja Europa, Helsinki-Tallinna 
-19.6.2013 Tommi Soidinmäki & Energia – Silja Europa, Helsinki-Tallinna 
+16.6.2013 Tommi Soidinmäki & Energia – Silja Europa, Helsinki
+17.6.2013 Tommi Soidinmäki & Energia – Silja Europa, Helsinki
+18.6.2013 Tommi Soidinmäki & Energia – Silja Europa, Helsinki
+19.6.2013 Tommi Soidinmäki & Energia – Silja Europa, Helsinki
 21.6.2013 Tommi Soidinmäki & Energia – Viihdekeskus Hojo hojo, Tuusniemi
 22.6.2013 Tommi Soidinmäki & Energia – Salmen lava, Jäppilä
 28.6.2013 Tommi Soidinmäki & Energia – Kruunuareena, Punkaharju
@@ -68,10 +68,10 @@
 14.9.2013 Tommi Soidinmäki & Energia – Revontuli, Hankasalmi
 27.9.2013 Tommi Soidinmäki & Energia – Piippokeskus, Lempäälä
 9.11.2013 Tommi Soidinmäki & Energia – Rokuan kuntokeskus, Rokua
-5.11.2013 Tommi Soidinmäki & Energia – Viking XPRS, Helsinki-Tallinna 
-6.11.2013 Tommi Soidinmäki & Energia – Viking XPRS, Helsinki-Tallinna 
-7.11.2013 Tommi Soidinmäki & Energia – Viking XPRS, Helsinki-Tallinna 
-15.11.2013 Tommi Soidinmäki & Energia – Club 70’s, Pori
+5.11.2013 Tommi Soidinmäki & Energia – Viking XPRS, Helsinki
+6.11.2013 Tommi Soidinmäki & Energia – Viking XPRS, Helsinki
+7.11.2013 Tommi Soidinmäki & Energia – Viking XPRS, Helsinki
+15.11.2013 Tommi Soidinmäki & Energia – Club 70s, Pori
 16.11.2013 Tommi Soidinmäki & Energia – Auran nuortentalo, Aura
 18.11.2013 Niko Saloheimo & Energia/JAO – Siltasali, Jyväskylä
 22.11.2013 Pekka Mikkola & Energia – Hotelli Levitunturi, Kittilä
@@ -84,28 +84,28 @@
 14.12.2013 Tommi Soidinmäki & Energia – Martin kievari, Äänekoski
 16.12.2013 Tommi Soidinmäki & Energia – Pieksämäen kirkko, Pieksämäki
 17.12.2013 Tommi Soidinmäki & Energia – Saarijärven kirkko, Saarijärvi
-4.1.2014 Tommi Soidinmäki & Energia – Wanhankellari, Helsinki
+4.1.2014 Tommi Soidinmäki & Energia – Wanhan Kellari, Helsinki
 11.1.2014 Tommi Soidinmäki & Energia – Limingan NS, Liminka
 17.1.2014 Tommi Soidinmäki & Energia – Jyväshovi, Jyväskylä
 18.1.2014 Tommi Soidinmäki & Energia – Hotelli Vaakuna, Kouvola
 8.2.2014 Energia – Ravintola Hymykuoppa, Kangasniemi
 15.2.2014 Energia – Yksityistilaisuus, Jyväskylä
 16.2.2014 Tommi Soidinmäki & Energia – Kivistön työväentalo, Jyväskylä
-18.2.2014 Tommi Soidinmäki & Energia – Viking XPRS – Helsinki-Tallinna 
-19.2.2014 Tommi Soidinmäki & Energia – Viking XPRS – Helsinki-Tallinna 
-20.2.2014 Tommi Soidinmäki & Energia – Viking XPRS – Helsinki-Tallinna 
-23.2.2014 Tommi Soidinmäki & Energia – Viking Grace – Turku-Tukholma 
+18.2.2014 Tommi Soidinmäki & Energia – Viking XPRS, Helsinki
+19.2.2014 Tommi Soidinmäki & Energia – Viking XPRS, Helsinki
+20.2.2014 Tommi Soidinmäki & Energia – Viking XPRS, Helsinki
+23.2.2014 Tommi Soidinmäki & Energia – Viking Grace, Turku
 29.3.2014 Tommi Soidinmäki & Energia – Lomakeskus Huhmari, Polvijärvi
 15.3.2014 Tommi Soidinmäki & Energia – Sokos Hotel Bomba, Nurmes
 8.3.2014 Tommi Soidinmäki & Energia – Limingan NS, Liminka
 12.4.2014 Pekka Mikkola & Energia – Pajarinhovi, Kitee
 19.4.2014 Tommi Soidinmäki & Energia – Tanhuhovi, Lohja
-2.5.2014 Tommi Soidinmäki & Energia – Wanhankellari, Helsinki
+2.5.2014 Tommi Soidinmäki & Energia – Wanhan Kellari, Helsinki
 3.5.2014 Tommi Soidinmäki, Isto Hiltunen & Energia – Paviljonki, Jyväskylä
-13.5.2014 Tommi Soidinmäki & Energia – Viking Grace, Turku-Tukholma 
+13.5.2014 Tommi Soidinmäki & Energia – Viking Grace, Turku
 31.5.2014 Tommi Soidinmäki & Energia – Ämyri, Somero
 7.6.2014 Tommi Soidinmäki & Energia – Liperin lava, Joensuu
-3.6.2014 Tommi Soidinmäki & Energia – Hotelli Hiitteenharju, Harjavalta
+3.6.2014 Tommi Soidinmäki & Energia – Hotelli Hiittenharju, Harjavalta
 4.6.2014 Tommi Soidinmäki & Energia – Särkkä, Punkalaidun
 13.6.2014 Isto Hiltunen & Energia – Yksityistilaisuus, Helsinki
 14.6.2014 Tommi Soidinmäki & Energia – Valasranta, Yläne
@@ -125,10 +125,10 @@
 19.7.2014 Tommi Soidinmäki & Energia – Urjanlinna, Sievi
 25.7.2014 Tommi Soidinmäki & Energia – Vuonislahden lava, Lieksa
 26.7.2014 Isto Hiltunen & Energia – Mäntymotelli, Mäntyharju
-27.7.2014 Tommi Soidinmäki & Energia – Baltic Princess, Turku-Tukholma
-28.7.2014 Tommi Soidinmäki & Energia – Baltic Princess, Turku-Tukholma
-29.7.2014 Tommi Soidinmäki & Energia – Baltic Princess, Turku-Tukholma
-30.7.2014 Tommi Soidinmäki & Energia – Baltic Princess, Turku-Tukholma
+27.7.2014 Tommi Soidinmäki & Energia – Baltic Princess, Turku
+28.7.2014 Tommi Soidinmäki & Energia – Baltic Princess, Turku
+29.7.2014 Tommi Soidinmäki & Energia – Baltic Princess, Turku
+30.7.2014 Tommi Soidinmäki & Energia – Baltic Princess, Turku
 1.8.2014 Tommi Soidinmäki & Energia – Lomakeskus Karemajat, Ylitornio
 2.8.2014 Tommi Soidinmäki & Energia – Vaattojärven rantapaviljonki, Kolari
 8.8.2014 Energia – Yksityistilaisuus, Jyväskylä
@@ -142,7 +142,7 @@
 3.10.2014 Tommi Soidinmäki & Energia – Jyväshovi, Jyväskylä
 4.10.2014 Tommi Soidinmäki & Energia – Limingan NS, Liminka
 5.10.2014 Saija Tuupanen, Tommi Soidinmäki & Energia – Carelia-sali, Joensuu
-8.10.2014 Tommi Soidinmäki & Energia – Ravintola Monrepo’s, Lappeenranta
+8.10.2014 Tommi Soidinmäki & Energia – Ravintola Monrepos, Lappeenranta
 11.10.2014 Energia – Yksityistilaisuus, Jyväskylä
 12.10.2014 Saija Tuupanen, Tommi Soidinmäki & Energia – Vantaa, Martinus
 24.10.2014 Saija Tuupanen, Tommi Soidinmäki & Energia – Monitoimihalli, Saarijärvi
@@ -156,21 +156,21 @@
 7.11.2014 Tommi Soidinmäki & Energia – Tähtikellari, Pori
 13.11.2014 Saija Tuupanen, Tommi Soidinmäki & Energia – Varkaus-sali, Varkaus
 15.11.2014 Isto Hiltunen & Energia – Yksityistilaisuus, Kouvola
-16.11.2014 Tommi Soidinmäki & Energia – Baltic Princess, Turku-Tukholma 
-17.11.2014 Tommi Soidinmäki & Energia – Baltic Princess, Turku-Tukholma 
-18.11.2014 Tommi Soidinmäki & Energia – Baltic Princess, Turku-Tukholma 
+16.11.2014 Tommi Soidinmäki & Energia – Baltic Princess, Turku
+17.11.2014 Tommi Soidinmäki & Energia – Baltic Princess, Turku
+18.11.2014 Tommi Soidinmäki & Energia – Baltic Princess, Turku
 20.11.2014 Saija Tuupanen, Tommi Soidinmäki & Energia – Kiurusali, Kiuruvesi
 28.11.2014 Tommi Soidinmäki & Energia – Hotelli Kumpeli, Heinola
-2.12.2014 Tommi Soidinmäki & Energia – Viking Gabriella, Helsinki-Tukholma 
-3.12.2014 Tommi Soidinmäki & Energia – Viking Gabriella, Helsinki-Tukholma 
+2.12.2014 Tommi Soidinmäki & Energia – Viking Gabriella, Helsinki
+3.12.2014 Tommi Soidinmäki & Energia – Viking Gabriella, Helsinki
 5.12.2014 Saija Tuupanen, Tommi Soidinmäki & Energia – Sigyn-sali, Turku
 11.12.2014 Tommi Soidinmäki & Energia – Peurunka, Laukaa
-26.12.2014 Tommi Soidinmäki & Energia – Wanhankellari, Helsinki
-28.12.2014 Tommi Soidinmäki & Energia – Baltic Queen, Helsinki-Tallinna 
-29.12.2014 Tommi Soidinmäki & Energia – Baltic Queen, Helsinki-Tallinna 
-30.12.2014 Tommi Soidinmäki & Energia – Baltic Queen, Helsinki-Tallinna 
+26.12.2014 Tommi Soidinmäki & Energia – Wanhan Kellari, Helsinki
+28.12.2014 Tommi Soidinmäki & Energia – Baltic Queen, Helsinki
+29.12.2014 Tommi Soidinmäki & Energia – Baltic Queen, Helsinki
+30.12.2014 Tommi Soidinmäki & Energia – Baltic Queen, Helsinki
 31.12.2014 Energia – Yksityistilaisuus, Tampere
-24.1.2015 Tommi Soidinmäki & Energia – Paviljonki (yritystilaisuus), Jyväskylä
+24.1.2015 Tommi Soidinmäki & Energia – Paviljonki, Jyväskylä
 7.2.2015 Tommi Soidinmäki & Energia – Auran Nuortentalo, Aura
 8.2.2015 Tommi Soidinmäki & Energia – Viking Grace, Turku-Tukholma 
 28.2.2015 Tommi Soidinmäki & Energia – Revontuli, Hankasalmi
@@ -186,13 +186,13 @@
 29.5.2015 Tommi Soidinmäki & Energia – Yksityistilaisuus, Ähtäri
 23.5.2015 Tommi Soidinmäki & Energia – Kukonhiekka, Saarijärvi
 23.5.2015 Tommi Soidinmäki & Energia – Yksityistilaisuus, Saarijärvi
-20.5.2015 Tommi Soidinmäki & Energia – Baltic Princess, Turku-Tukholma 
+20.5.2015 Tommi Soidinmäki & Energia – Baltic Princess, Turku
 23.5.2015 Tommi Soidinmäki & Energia – Yksityistilaisuus, Saarijärvi
 16.5.2015 Tommi Soidinmäki & Energia – Wanhankellari, Helsinki
 15.5.2015 Tommi Soidinmäki & Energia – Uittamon lava, Turku
-12.5.2015 Tommi Soidinmäki & Energia – Baltic Queen, Helsinki-Tallinna 
-11.5.2015 Tommi Soidinmäki & Energia – Baltic Queen, Helsinki-Tallinna 
-10.5.2015 Tommi Soidinmäki & Energia – Baltic Queen, Helsinki-Tallinna 
+12.5.2015 Tommi Soidinmäki & Energia – Baltic Queen, Helsinki
+11.5.2015 Tommi Soidinmäki & Energia – Baltic Queen, Helsinki
+10.5.2015 Tommi Soidinmäki & Energia – Baltic Queen, Helsinki
 9.5.2015 Tommi Soidinmäki & Energia – Limingan NS, Liminka
 5.6.2015 Tommi Soidinmäki & Energia – Vehun seurantalo, Ähtäri
 6.6.2015 Tommi Soidinmäki & Energia – Valasranta, Yläne
@@ -205,13 +205,13 @@
 4.7.2015 Tommi Soidinmäki & Energia – Merikievari, Merikarvia
 10.7.2015 Tommi Soidinmäki & Energia – Ravintola Hurpakka, Kinnula
 11.7.2015 Tommi Soidinmäki & Energia – Narvan markkinat, Vesilahti
-17.7.2015 Tommi Soidinmäki & Energia – Monrepo’s, Lappeenranta
+17.7.2015 Tommi Soidinmäki & Energia – Monrepos, Lappeenranta
 18.7.2015 Tommi Soidinmäki & Energia – Huvilintu, Raisio
 19.7.2015 Teemu Roivainen & Energia feat. Saara Aalto – Tirvan lava, Kouvola
 23.7.2015 Tommi Soidinmäki & Energia – Linnanmäki, Helsinki
 25.7.2015 Tommi Soidinmäki & Energia – Lohirannan lomakylä, Sukeva
 28.7.2015 Isto Hiltunen & Energia – Lounaispuisto, Jyväskylä
-1.8.2015 Energia – ”Valssin aika”-tapahtuma/Viitasaari Areena, Viitasaari
+1.8.2015 Energia – ”Valssin aika”-tapahtuma / Viitasaari Areena, Viitasaari
 1.8.2015 Tommi Soidinmäki & Energia – Viitasaari Areena, Viitasaari
 7.8.2015 Teemu Roivainen & Energia – Ruokolahden lava, Siikajoki
 8.8.2015 Teemu Roivainen & Energia – Hiihtomäen lava, Mikkeli
@@ -219,13 +219,13 @@
 15.8.2015 Tommi Soidinmäki & Energia – Rönnin lava, Orivesi
 29.8.2015 Tommi Soidinmäki & Energia – Tanhuhovi, Lohja
 30.8.2015 Tommi Soidinmäki & Energia – Ainolan lava, Jyväskylä
-1.9.2015 Teemu Roivainen & Energia – M/S Finlandia, Helsinki-Tallinna 
-2.9.2015 Teemu Roivainen & Energia – M/S Finlandia, Helsinki-Tallinna 
+1.9.2015 Teemu Roivainen & Energia – M/S Finlandia, Helsinki
+2.9.2015 Teemu Roivainen & Energia – M/S Finlandia, Helsinki
 4.9.2015 Tommi Soidinmäki & Energia – Rokuan kuntokeskus, Rokua
-6.9.2015 Teemu Roivainen & Energia – Baltic Princess, Turku-Tukholma 
-7.9.2015 Teemu Roivainen & Energia – Baltic Princess, Turku-Tukholma
-8.9.2015 Teemu Roivainen & Energia – Baltic Princess, Turku-Tukholma 
-9.9.2015 Teemu Roivainen & Energia – Baltic Princess, Turku-Tukholma 
+6.9.2015 Teemu Roivainen & Energia – Baltic Princess, Turku
+7.9.2015 Teemu Roivainen & Energia – Baltic Princess, Turku
+8.9.2015 Teemu Roivainen & Energia – Baltic Princess, Turku
+9.9.2015 Teemu Roivainen & Energia – Baltic Princess, Turku
 11.9.2015 Teemu Roivainen & Energia – Ravintola Raitti, Taivassalo
 12.9.2015 Isto Hiltunen & Energia – Finlandia Marathon, Jyväskylä
 12.9.2015 Tommi Soidinmäki & Energia – Syvälahden lava, Kangasniemi
@@ -239,11 +239,11 @@
 17.10.2015 Tommi Soidinmäki & Energia – Paalupaikka, Pieksämäki
 23.10.2015 Tommi Soidinmäki & Energia – Häijään Tanssikrouvi, Mouhijärvi
 24.10.2015 Tommi Soidinmäki & Energia – Urjanlinna, Sievi
-25.10.2015 Tommi Soidinmäki & Energia – Baltic Princess, Turku-Tukholma 
-26.10.2015 Tommi Soidinmäki & Energia – Baltic Princess, Turku-Tukholma 
+25.10.2015 Tommi Soidinmäki & Energia – Baltic Princess, Turku
+26.10.2015 Tommi Soidinmäki & Energia – Baltic Princess, Turku
 6.11.2015 Tommi Soidinmäki & Energia – Hotelli Summassaari, Saarijärvi
-9.11.2015 Tommi Soidinmäki & Energia – Viking Grace, Turku-Tukholma 
-10.11.2015 Tommi Soidinmäki & Energia – Viking Grace, Turku-Tukholma 
+9.11.2015 Tommi Soidinmäki & Energia – Viking Grace, Turku
+10.11.2015 Tommi Soidinmäki & Energia – Viking Grace, Turku
 13.11.2015 Tommi Soidinmäki & Energia – Jyväshovi, Jyväskylä
 14.11.2015 Teemu Roivainen & Energia – Ruusulinna, Nurmijärvi
 20.11.2015 Sanna-Mari Titov & Energia – Sinisoihtu, Rauma
@@ -254,7 +254,7 @@
 4.12.2015 Tommi Soidinmäki & Energia – Imatran kylpylä, Imatra
 5.12.2015 Tommi Soidinmäki & Energia – Keskustalo, Kotka
 6.12.2015 Teemu Roivainen & Energia – Vuoksenniskan työväentalo, Imatra
-8.12.2015 Tommi Soidinmäki & Energia – Baltic Queen, Turku-Tukholma 
+8.12.2015 Tommi Soidinmäki & Energia – Baltic Queen, Turku
 11.12.2015 Tommi Soidinmäki & Energia – Sokos Hotel Kimmel, Joensuu
 12.12.2015 Sanna-Mari Titov & Energia – Yksityistilaisuus, Orivesi
 18.12.2015 Tommi Soidinmäki & Energia – Karkkilan kirkko, Karkkila
@@ -283,26 +283,26 @@
 1.4.2016 Teemu Roivainen & Energia – Ruunuhelmi, Oulujärvi
 2.4.2016 Tommi Soidinmäki & Energia – Keurusselkä, Keuruu
 16.4.2016 Teemu Roivainen & Energia – Kuntotalo, Kouvola
-23.4.2016 Energia – Paviljonki, Jyvaskyla
+23.4.2016 Energia – Paviljonki, Jyväskylä
 28.4.2016 Tommi Soidinmäki & Energia – Hotelli Peurunka, Laukaa
 4.5.2016 Tommi Soidinmäki & Energia – Kalliojärven viihdekeskus, Isokyrö
 6.5.2016 Tommi Soidinmäki & Energia – Ravintola Anna & Albert, Oulu
 7.5.2016 Tommi Soidinmäki & Energia – Simon Metsäpirtti, Simo
-15.5.2016 Tommi Soidinmäki & Energia – Viking Grace, Turku-Tukholma 
-16.5.2016 Teemu Roivainen & Energia – Viking Grace, Turku-Tukholma 
-17.5.2016 Teemu Roivainen & Energia – Viking Grace, Turku-Tukholma 
-17.5.2016 Teemu Roivainen & Energia – Viking Grace, Turku-Tukholma 
+15.5.2016 Tommi Soidinmäki & Energia – Viking Grace, Turku
+16.5.2016 Teemu Roivainen & Energia – Viking Grace, Turku
+17.5.2016 Teemu Roivainen & Energia – Viking Grace, Turku
+17.5.2016 Teemu Roivainen & Energia – Viking Grace, Turku
 20.5.2016 Isto Hiltunen & Energia – Yritystilaisuus, Jyväskylä
 21.5.2016 Teemu Roivainen & Energia – Ämyri, Somerniemi
-24.5.2016 Teemu Roivainen & Energia – Baltic Queen, Helsinki-Tallinna 
+24.5.2016 Teemu Roivainen & Energia – Baltic Queen, Helsinki
 28.5.2016 Tommi Soidinmäki & Energia – Witsiälän tanssilava, Hämeenlinna
 1.6.2016 Niko Saloheimo & Energia feat. Special Guests – Siltasali, Jyväskylä
 4.6.2016 Tommi Soidinmäki & Energia – Yksityistilaisuus, Muurame
 5.6.2016 Tommi Soidinmäki & Energia – Ainolan lava, Jyväskylä
 10.6.2016 Tommi Soidinmäki & Energia – Keurusselkä, Keuruu
 11.6.2016 Tommi Soidinmäki & Energia – Syvälahden lava, Kangasniemi
-12.6.2016 Tommi Soidinmäki & Energia  – Silja Europa, Helsinki-Tallinna 
-13.6.2016 Tommi Soidinmäki & Energia – Silja Europa, Helsinki-Tallinna 
+12.6.2016 Tommi Soidinmäki & Energia  – Silja Europa, Helsinki
+13.6.2016 Tommi Soidinmäki & Energia – Silja Europa, Helsinki
 18.6.2016 Tommi Soidinmäki & Energia – Liimamäen lava, Karkkila
 23.6.2016 Isto Hiltunen & Energia – Merikievari, Merikarvia
 24.6.2016 Tommi Soidinmäki & Energia – Savion lava, Laukaa
@@ -312,8 +312,8 @@
 8.7.2016 Tommi Soidinmäki & Energia – Ravintola Mendin, Ilomantsi
 12.7.2016 Energia – Lounaispuisto, Jyväskylä
 16.7.2016 Tommi Soidinmäki & Energia – Letkaliiteri, Leivonmäki
-17.7.2016 Tommi Soidinmäki & Energia – Baltic Queen, Helsinki-Tallinna 
-18.7.2016 Tommi Soidinmäki & Energia – Baltic Queen, Helsinki-Tallinna 
+17.7.2016 Tommi Soidinmäki & Energia – Baltic Queen, Helsinki
+18.7.2016 Tommi Soidinmäki & Energia – Baltic Queen, Helsinki
 21.7.2016 A. Koriseva, T. Soidinmäki, M. Konttinen & Energia – Kirmot, Saarijärvi
 23.7.2016 Tommi Soidinmäki & Energia – Kaarihovi, Teuva
 26.7.2016 Energia – Lounaispuisto, Jyväskylä
@@ -348,15 +348,15 @@
 19.11.2016 Tommi Soidinmäki & Energia – Urjanlinna, Sievi
 25.11.2016 Tommi Soidinmäki & Energia – Kylpylähotelli Peurunka, Laukaa
 26.11.2016 Tommi Soidinmäki & Energia – Auran Nuortentalo, Aura
-29.11.2016 Tommi Soidinmäki & Energia – Baltic Princess, Turku-Tukholma 
-30.11.2016 Tommi Soidinmäki & Energia – Baltic Princess, Turku-Tukholma 
+29.11.2016 Tommi Soidinmäki & Energia – Baltic Princess, Turku
+30.11.2016 Tommi Soidinmäki & Energia – Baltic Princess, Turku
 2.12.2016 Isto Hiltunen & Energia – Hotelli Keurusselkä, Keuruu
 3.12.2016 Isto Hiltunen & Energia – Nightclub Tähti, Oulu
 10.12.2016 Tommi Soidinmäki & Energia – Kylpylähotelli Summassaari, Saarijärvi
 14.12.2016 Tommi Soidinmäki & Energia – Viking Amorella, Turku-Tukholma
 17.12.2016 Tommi Soidinmäki & Energia – Härmän kuntokeskus, Kauhava
-20.12.2016 Tommi Soidinmäki & Energia – Silja Europa, Helsinki-Tallinna
-21.12.2016 Tommi Soidinmäki & Energia – Silja Europa, Helsinki-Tallinna
+20.12.2016 Tommi Soidinmäki & Energia – Silja Europa, Helsinki
+21.12.2016 Tommi Soidinmäki & Energia – Silja Europa, Helsinki
 31.12.2016 Energia – Kirkkopuiston uudenvuodenjuhlat, Jyväskylä
 6.1.2017 Maria Tyyster & Energia – Imatran kaupungintalo, Imatra
 7.1.2017 Nina Åkerman & Energia – Manttaalitalo, Lempäälä

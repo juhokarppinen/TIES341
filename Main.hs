@@ -6,8 +6,8 @@
     | By Juho Karppinen 2017                                        |
     +---------------------------------------------------------------+
 
-    This program reads a data file and outputs the contents formatted as HTML 
-    tables. 
+    This program reads a plaintext file into a list of custom data structures 
+    and outputs the contents formatted as HTML tables. 
 
     Non-base dependencies:
 
@@ -16,6 +16,7 @@
 
 module Main where
 
+import Control.Applicative
 import Control.Monad
 import Data.Char
 import Data.List
@@ -73,9 +74,12 @@ main :: IO ()
 main = do
     entryData <- readToList inputFile -- Read input data
     let entries = map parse entryData -- Parse input data
-    ls <- generateTable entries
-    mapM_ putStrLn ls -- Print output HTML
+    ls <- generateTable entries -- Generate HTML table from entries
+    clearFile outputFile
+    appendToFile outputFile ls
+    -- putStrLn . show $ ls -- Print output list
     -- mapM_ (putStrLn.show) entries -- Print entries
+    -- mapM_ putStrLn ls -- Print output HTML
 
 
 -- Parse a String into an Entry.
@@ -102,16 +106,13 @@ parseEntry = do
     return $ Entry (parseDay day) name place
 
 
+-- Check if a character is valid.
 isValidChar :: Char -> Bool
-isValidChar c = any (c ==) validChars
-
-
-validChars :: String
-validChars = 
+isValidChar c = any (c ==) $ 
     "abcdefghijklmnopqrstuvwxyzåäö" ++
     "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ" ++
     "0123456789" ++
-    "-._~:/?#[]@!$&'()*+,;= " 
+    "-–._~:/?#[]@!$&'()*+,;=\"`´’” "
 
 
 -- Return a file's contents as a list of lines.
@@ -119,6 +120,11 @@ readToList :: String -> IO [String]
 readToList file = do
     ls <- fmap lines (readFile file)
     return ls
+
+
+-- Clears a file.
+clearFile :: String -> IO ()
+clearFile file = writeFile file ""
 
 
 -- Append a list of lines into a file.
@@ -139,9 +145,11 @@ printLines t = do
 generateTable :: [Entry] -> IO [String]
 generateTable entries = do
     t0 <- fmapM (fmap (enclose "th")) $ readToList configFile
-    let headers = encloseL "tr" t0
-    -- TODO : Add data here
-    return $ encloseL "table" headers
+    let headerHTML = encloseL "tr" t0
+    let t1 = fmap unpackEntry entries
+    let t2 = fmap (fmap $ enclose "td") t1
+    let entriesHTML = concat $ fmap (encloseL "tr") t2
+    return $ encloseL "table" (headerHTML ++ entriesHTML)
     
 
 -- Enclose a String in HTML tags.
@@ -154,12 +162,18 @@ encloseL :: String -> [String] -> [String]
 encloseL tag txts = ["<" ++ tag ++ ">"] ++ txts ++ ["</" ++ tag ++ ">"]
 
 
+-- Unpack an Entry into a [String]
+unpackEntry :: Entry -> [String]
+unpackEntry e = [showDateFinnishFormat $ getDate e, getName e, getPlace e]
+
+
 -- Return a Day into a Finnish formatted text representation.
 showDateFinnishFormat :: Day -> String
-showDateFinnishFormat d = Data.List.intercalate "." $ 
-                          Data.List.reverse $ 
-                          Data.List.Split.splitOn "-" $ 
-                          show d
+showDateFinnishFormat d = 
+    Data.List.intercalate "." $ 
+    Data.List.reverse $ 
+    Data.List.Split.splitOn "-" $ 
+    show d
 
 
 -- Parse a Finnish formatted text representation of a date into a Day.
