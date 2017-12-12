@@ -22,6 +22,8 @@ import Data.Char
 import Data.List
 import Data.List.Split
 import Data.Time
+import Data.Time.Clock
+import Data.Time.Calendar
 import Data.Monoid
 import System.IO
 import System.Environment
@@ -68,24 +70,33 @@ outputFile = "html/gigs.html"
 h = readToList configFile
 d = readToList inputFile
 e = do { eD <- readToList inputFile; return $ map parse eD }
-today = fromGregorian 2017 11 22
 -----------------------
 -----------------------
 
 main :: IO ()
 main = do
     entryData <- readToList inputFile
+    today <- today
+    
     let entries = map parse entryData
     let future = filterAfterDate today entries
     let past = filterBeforeDate today entries
+    
     ls1 <- generateTable future
     ls2 <- generateTable $ reverse past
+    
     clearFile outputFile
     appendToFile outputFile ls1
     appendToFile outputFile ls2
+    
     -- putStrLn . show $ ls -- Print output list
     -- mapM_ (putStrLn.show) entries -- Print entries
     -- mapM_ putStrLn ls -- Print output HTML
+
+
+today :: IO Day
+today = getCurrentTime >>= return . utctDay
+
 
 
 -- Parse a String into an Entry.
