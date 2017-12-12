@@ -94,6 +94,7 @@ main = do
     -- mapM_ putStrLn ls -- Print output HTML
 
 
+-- Return today's date.
 today :: IO Day
 today = getCurrentTime >>= return . utctDay
 
@@ -193,7 +194,7 @@ showDateFinnishFormat d =
     show d
 
 
--- Parse a Finnish formatted text representation of a date into a Day.
+-- Parse a Finnish formatted text representation of a date (d.m.y) into a Day.
 -- Brittle first implementation.
 parseDay :: String -> Day
 parseDay t = case (Data.List.Split.splitOn "." $ t) of
