@@ -74,11 +74,11 @@ today = fromGregorian 2017 11 22
 
 main :: IO ()
 main = do
-    entryData <- readToList inputFile -- Read input data
-    let entries = map parse entryData -- Parse input 
-    let future = entryFilter getDate (>=) today entries
-    let past = entryFilter getDate (<) today entries
-    ls1 <- generateTable future -- Generate HTML table from entries
+    entryData <- readToList inputFile
+    let entries = map parse entryData
+    let future = filterAfterDate today entries
+    let past = filterBeforeDate today entries
+    ls1 <- generateTable future
     ls2 <- generateTable $ reverse past
     clearFile outputFile
     appendToFile outputFile ls1
@@ -207,9 +207,14 @@ fmapM op a = a >>= (\b -> return $ op b)
 -- getter : getDate, getName or getPlace
 -- comp   : method from Eq typeclass
 -- val    : value to compare with 
-entryFilter :: Eq a => (Entry->a) -> (a->a-> Bool) -> a -> [Entry] -> [Entry]
-entryFilter getter comp val [] = []
-entryFilter getter comp val (x:xs)
-    | comp (getter x) val = x : (entryFilter getter comp val xs)
-    | otherwise = entryFilter getter comp val xs   
+filterEntry :: Eq a => (Entry->a) -> (a->a-> Bool) -> a -> [Entry] -> [Entry]
+filterEntry getter comp val [] = []
+filterEntry getter comp val (x:xs)
+    | comp (getter x) val = x : (filterEntry getter comp val xs)
+    | otherwise = filterEntry getter comp val xs   
 
+
+filterBeforeDate day e = filterEntry getDate (<) day e
+filterAfterDate day e = filterEntry getDate (>=) day e
+filterByPlace place e = filterEntry getPlace (==) place e
+filterByName name e = filterEntry getName (==) name e
