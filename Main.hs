@@ -63,21 +63,26 @@ inputFile = "data/gig-data.txt"
 outputFile :: String
 outputFile = "html/gigs.html"
 
-
+-----------------------
 -- Testing shortcuts --
 h = readToList configFile
 d = readToList inputFile
+e = do { eD <- readToList inputFile; return $ map parse eD }
+today = fromGregorian 2017 11 22
 -----------------------
-
+-----------------------
 
 main :: IO ()
 main = do
     entryData <- readToList inputFile -- Read input data
-    let entries = map parse entryData -- Parse input data
-    ls <- generateTable entries -- Generate HTML table from entries
-
+    let entries = map parse entryData -- Parse input 
+    let future = naiveFilter getDate (>=) today entries
+    let past = naiveFilter getDate (<) today entries
+    ls1 <- generateTable future -- Generate HTML table from entries
+    ls2 <- generateTable $ reverse past
     clearFile outputFile
-    appendToFile outputFile ls
+    appendToFile outputFile ls1
+    appendToFile outputFile ls2
     -- putStrLn . show $ ls -- Print output list
     -- mapM_ (putStrLn.show) entries -- Print entries
     -- mapM_ putStrLn ls -- Print output HTML
@@ -114,9 +119,10 @@ parseEntry =
 
 -- Return a file's contents as a list of lines.
 readToList :: String -> IO [String]
-readToList file = do
-    ls <- fmap lines (readFile file)
-    return ls
+readToList file = 
+    do
+        ls <- fmap lines (readFile file)
+        return ls
 
 
 -- Clears a file.
@@ -126,27 +132,30 @@ clearFile file = writeFile file ""
 
 -- Append a list of lines into a file.
 appendToFile :: String -> [String] -> IO ()
-appendToFile file lines = do
-    let lines2 = fmap (++ "\n") lines
-    mapM_ (appendFile file) lines2
+appendToFile file lines = 
+    do
+        let lines2 = fmap (++ "\n") lines
+        mapM_ (appendFile file) lines2
 
 
 -- Pretty print a list of showable IO objects.
 printLines :: Show a => IO [a] -> IO ()
-printLines t = do
-    textLines <- t
-    mapM_ (putStrLn . show) textLines
+printLines t = 
+    do
+        textLines <- t
+        mapM_ (putStrLn . show) textLines
 
 
 -- Generate an HTML table as a list of lines. 
 generateTable :: [Entry] -> IO [String]
-generateTable entries = do
-    t0 <- fmapM (fmap (enclose "th")) $ readToList configFile
-    let headerHTML = encloseL "tr" t0
-    let t1 = fmap unpackEntry entries
-    let t2 = fmap (fmap $ enclose "td") t1
-    let entriesHTML = concat $ fmap (encloseL "tr") t2
-    return $ encloseL "table" (headerHTML ++ entriesHTML)
+generateTable entries = 
+    do
+        t0 <- fmapM (fmap (enclose "th")) $ readToList configFile
+        let headerHTML = encloseL "tr" t0
+        let t1 = fmap unpackEntry entries
+        let t2 = fmap (fmap $ enclose "td") t1
+        let entriesHTML = concat $ fmap (encloseL "tr") t2
+        return $ encloseL "table" (headerHTML ++ entriesHTML)
     
 
 -- Enclose a String in HTML tags.
@@ -192,4 +201,15 @@ parseDay t = case (Data.List.Split.splitOn "." $ t) of
 --      fmapM reverse $ readDataToList inputFile
 fmapM :: (Functor f, Monad m) => (f a -> f b) -> m (f a) -> m (f b)
 fmapM op a = a >>= (\b -> return $ op b)
-    
+
+
+-- Filter Entries by field comparison.
+-- getter : getDate, getName or getPlace
+-- comp   : method from Eq typeclass
+-- val    : value to compare with 
+naiveFilter :: Eq a => (Entry->a) -> (a->a-> Bool) -> a -> [Entry] -> [Entry]
+naiveFilter getter comp val [] = []
+naiveFilter getter comp val (x:xs)
+    | comp (getter x) val = x : (naiveFilter getter comp val xs)
+    | otherwise = naiveFilter getter comp val xs   
+
