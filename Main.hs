@@ -76,8 +76,8 @@ main :: IO ()
 main = do
     entryData <- readToList inputFile -- Read input data
     let entries = map parse entryData -- Parse input 
-    let future = naiveFilter getDate (>=) today entries
-    let past = naiveFilter getDate (<) today entries
+    let future = entryFilter getDate (>=) today entries
+    let past = entryFilter getDate (<) today entries
     ls1 <- generateTable future -- Generate HTML table from entries
     ls2 <- generateTable $ reverse past
     clearFile outputFile
@@ -207,9 +207,9 @@ fmapM op a = a >>= (\b -> return $ op b)
 -- getter : getDate, getName or getPlace
 -- comp   : method from Eq typeclass
 -- val    : value to compare with 
-naiveFilter :: Eq a => (Entry->a) -> (a->a-> Bool) -> a -> [Entry] -> [Entry]
-naiveFilter getter comp val [] = []
-naiveFilter getter comp val (x:xs)
-    | comp (getter x) val = x : (naiveFilter getter comp val xs)
-    | otherwise = naiveFilter getter comp val xs   
+entryFilter :: Eq a => (Entry->a) -> (a->a-> Bool) -> a -> [Entry] -> [Entry]
+entryFilter getter comp val [] = []
+entryFilter getter comp val (x:xs)
+    | comp (getter x) val = x : (entryFilter getter comp val xs)
+    | otherwise = entryFilter getter comp val xs   
 
