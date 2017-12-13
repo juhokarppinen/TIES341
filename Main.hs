@@ -244,14 +244,20 @@ filterByPlace place e = filterEntry getPlace (==) place e
 filterByName name e = filterEntry getName (==) name e
 
 
--- Amount of space characters for each indentation level.
-ind :: Int
-ind = 2
-
-
 -- Calculate the change to indentation level caused by the line of HTML.
 indentationChange :: String -> Int
 indentationChange s = totalTags - closingTags * 2 where
     totalTags = length $ filter (=='<') s
     closingTags = length $ filter (=='/') s
 
+
+-- Amount of space characters for each indentation level.
+ind :: Int
+ind = 2
+
+
+-- Add indentation to a string. The indentation parameter is the level of
+-- indentation, and the resulting amount of actual whitespace is dependenant
+-- on the constant ind.
+addIndentation :: Int -> String -> String
+addIndentation i s = replicate (i * ind) ' ' ++ s
