@@ -237,7 +237,21 @@ filterEntry getter comp val (x:xs)
     | otherwise = filterEntry getter comp val xs   
 
 
+-- Helper functions for filterEntry.
 filterBeforeDate day e = filterEntry getDate (<) day e
 filterAfterDate day e = filterEntry getDate (>=) day e
 filterByPlace place e = filterEntry getPlace (==) place e
 filterByName name e = filterEntry getName (==) name e
+
+
+-- Amount of space characters for each indentation level.
+ind :: Int
+ind = 2
+
+
+-- Calculate the change to indentation level caused by the line of HTML.
+indentationChange :: String -> Int
+indentationChange s = totalTags - closingTags * 2 where
+    totalTags = length $ filter (=='<') s
+    closingTags = length $ filter (=='/') s
+
