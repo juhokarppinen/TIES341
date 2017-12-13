@@ -245,7 +245,9 @@ filterByName name e = filterEntry getName (==) name e
 -- level.
 indent :: Int -> [String] -> [String]
 indent _ [] = []
-indent i (x:xs) = addIndentation i x : indent (i + indentationChange x) xs
+indent i (x:xs) 
+    | i < 0 = indent 0 (x:xs)
+    | otherwise = addIndentation i x : indent (i + indentationChange x) xs
 
 
 -- Add indentation to a string. The indentation parameter is the level of
