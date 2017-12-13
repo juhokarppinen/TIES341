@@ -270,12 +270,11 @@ indentationChange s = totalTags - closingTags * 2 where
         filter' "" = ""
         filter' (x:xs) = case x of
             '<' -> 
-                if 
-                    (isPrefixOf "/" xs) 
-                then 
-                    ("/" ++ filter' xs)
+                if (isPrefixOf "/" xs) 
+                then ("/" ++ filter' xs)
                 else filter' xs
-            otherwise -> filter' xs
+            otherwise -> 
+                filter' xs
 
 
 testHTML = [ 
