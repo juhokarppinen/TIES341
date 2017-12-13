@@ -175,7 +175,7 @@ generateTable entries =
         let t1 = fmap unpackEntry entries
         let t2 = fmap (fmap $ enclose "td") t1
         let entriesHTML = concat $ fmap (encloseL "tr") t2
-        return $ encloseL "table" (headerHTML ++ entriesHTML)
+        return $ indent 0 $ encloseL "table" (headerHTML ++ entriesHTML)
     
 
 -- Enclose a String in HTML tags.
@@ -265,7 +265,17 @@ ind = 2
 indentationChange :: String -> Int
 indentationChange s = totalTags - closingTags * 2 where
     totalTags = length $ filter (=='<') s
-    closingTags = length $ filter (=='/') s
+    closingTags = length $ filter' s where
+        filter' :: String -> String
+        filter' "" = ""
+        filter' (x:xs) = case x of
+            '<' -> 
+                if 
+                    (isPrefixOf "/" xs) 
+                then 
+                    ("/" ++ filter' xs)
+                else filter' xs
+            otherwise -> filter' xs
 
 
 testHTML = [ 
