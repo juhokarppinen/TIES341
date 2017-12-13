@@ -62,8 +62,13 @@ inputFile = "data/gig-data.txt"
 
 
 -- Initial hardcoded filepath.
-outputFile :: String
-outputFile = "html/gigs.html"
+outputFileFuture :: String
+outputFileFuture = "html/gigs-future.html"
+
+
+-- Initial hardcoded filepath.
+outputFilePast :: String
+outputFilePast = "html/gigs-past.html"
 
 -----------------------
 -- Testing shortcuts --
@@ -82,12 +87,11 @@ main = do
     let future = filterAfterDate today entries
     let past = filterBeforeDate today entries
     
-    ls1 <- generateTable future
-    ls2 <- generateTable $ reverse past
+    futureGigs <- generateTable future
+    pastGigs <- generateTable $ reverse past
     
-    clearFile outputFile
-    appendToFile outputFile ls1
-    appendToFile outputFile ls2
+    writeToFile outputFileFuture futureGigs
+    writeToFile outputFilePast pastGigs
     
     -- putStrLn . show $ ls -- Print output list
     -- mapM_ (putStrLn.show) entries -- Print entries
@@ -97,7 +101,6 @@ main = do
 -- Return today's date.
 today :: IO Day
 today = getCurrentTime >>= return . utctDay
-
 
 
 -- Parse a String into an Entry.
@@ -142,12 +145,20 @@ clearFile :: String -> IO ()
 clearFile file = writeFile file ""
 
 
--- Append a list of lines into a file.
+-- Appends a list of strings separated by linefeeds into a file.
 appendToFile :: String -> [String] -> IO ()
 appendToFile file lines = 
     do
         let lines2 = fmap (++ "\n") lines
         mapM_ (appendFile file) lines2
+
+
+-- Writes a list of strings into a file.
+writeToFile :: String -> [String] -> IO ()
+writeToFile file lines =
+    do
+        clearFile file
+        appendToFile file lines
 
 
 -- Pretty print a list of showable IO objects.
