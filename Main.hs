@@ -161,12 +161,9 @@ writeToFile file lines =
         appendToFile file lines
 
 
--- Pretty print a list of showable IO objects.
-printLines :: Show a => IO [a] -> IO ()
-printLines t = 
-    do
-        textLines <- t
-        mapM_ (putStrLn . show) textLines
+-- Pretty print a list of showable objects.
+printLines :: Show a => [a] -> IO ()
+printLines t = mapM_ (putStrLn . show) t
 
 
 -- Generate an HTML table as a list of lines. 
@@ -244,6 +241,26 @@ filterByPlace place e = filterEntry getPlace (==) place e
 filterByName name e = filterEntry getName (==) name e
 
 
+-- Indent a list of HTML lines. The first parameter is the starting indentation
+-- level.
+indent :: Int -> [String] -> [String]
+indent _ [] = []
+indent i (x:xs) = addIndentation i x : indent (i + indentationChange x) xs
+
+
+-- Add indentation to a string. The indentation parameter is the level of
+-- indentation, and the resulting amount of actual whitespace is dependenant
+-- on the constant ind.
+addIndentation :: Int -> String -> String
+addIndentation i s = replicate (indentationAmount * ind) ' ' ++ s where
+    indentationAmount = if (isPrefixOf "</" s) then i-1 else i
+
+
+-- Amount of space characters used for each indentation level.
+ind :: Int
+ind = 2
+
+
 -- Calculate the change to indentation level caused by the line of HTML.
 indentationChange :: String -> Int
 indentationChange s = totalTags - closingTags * 2 where
@@ -251,13 +268,16 @@ indentationChange s = totalTags - closingTags * 2 where
     closingTags = length $ filter (=='/') s
 
 
--- Amount of space characters for each indentation level.
-ind :: Int
-ind = 2
+testHTML = [ 
+    "<html>",
+    "<head>", 
+    "</head>",
+    "<body>",
+    "<p>",
+    "paragraph",
+    "</p>",
+    "</body>",
+    "</html>"]
 
 
--- Add indentation to a string. The indentation parameter is the level of
--- indentation, and the resulting amount of actual whitespace is dependenant
--- on the constant ind.
-addIndentation :: Int -> String -> String
-addIndentation i s = replicate (i * ind) ' ' ++ s
+
