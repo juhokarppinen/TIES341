@@ -51,44 +51,39 @@ instance Monoid Day where
     mappend a b = max a b
 
 
--- Initial hardcoded filepath.
-configFile :: String
-configFile = "conf/config.cnf"
+headerFile :: String
+headerFile = "conf/headers.cnf"
 
 
--- Initial hardcoded filepath.
+captionFile :: String
+captionFile = "conf/captions.cnf"
+
+
 inputFile :: String
 inputFile = "data/gig-data.txt"
 
 
--- Initial hardcoded filepath.
 outputFileFuture :: String
 outputFileFuture = "html/gigs-future.html"
 
 
--- Initial hardcoded filepath.
 outputFilePast :: String
 outputFilePast = "html/gigs-past.html"
 
------------------------
--- Testing shortcuts --
-h = readToList configFile
-d = readToList inputFile
-e = do { eD <- readToList inputFile; return $ map parse eD }
------------------------
------------------------
 
 main :: IO ()
 main = do
     entryData <- readToList inputFile
+    headers <- readToList headerFile
+    captions <- readToList captionFile
     today <- today
     
     let entries = map parse entryData
     let future = filterAfterDate today entries
     let past = filterBeforeDate today entries
     
-    futureGigs <- generateTable future
-    pastGigs <- generateTable $ reverse past
+    let futureGigs = generateTable (captions !! 0) headers future
+    let pastGigs = generateTable (captions !! 1) headers $ reverse past
     
     writeToFile outputFileFuture futureGigs
     writeToFile outputFilePast pastGigs
@@ -166,16 +161,16 @@ printLines :: Show a => [a] -> IO ()
 printLines t = mapM_ (putStrLn . show) t
 
 
--- Generate an HTML table as a list of lines. 
-generateTable :: [Entry] -> IO [String]
-generateTable entries = 
+-- Generate an HTML table as a list of lines.
+generateTable :: String -> [String] -> [Entry] -> [String]
+generateTable caption headers entries = 
     do
-        t0 <- fmapM (fmap (enclose "th")) $ readToList configFile
-        let headerHTML = encloseL "tr" t0
+        let captionHTML = enclose "caption" caption
+        let headersHTML = encloseL "tr" $ fmap (enclose "th") headers
         let t1 = fmap unpackEntry entries
         let t2 = fmap (fmap $ enclose "td") t1
         let entriesHTML = concat $ fmap (encloseL "tr") t2
-        return $ indent 0 $ encloseL "table" (headerHTML ++ entriesHTML)
+        indent 0 $ encloseL "table" ([caption] ++ headersHTML ++ entriesHTML)
     
 
 -- Enclose a String in HTML tags.
@@ -242,7 +237,7 @@ filterByName name e = filterEntry getName (==) name e
 
 
 -- Indent a list of HTML lines. The first parameter is the starting indentation
--- level.
+-- level. Negative indentation levels are replaced with zero.
 indent :: Int -> [String] -> [String]
 indent _ [] = []
 indent i (x:xs) 
@@ -289,6 +284,4 @@ testHTML = [
     "</p>",
     "</body>",
     "</html>"]
-
-
 
