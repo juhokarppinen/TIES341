@@ -170,7 +170,7 @@ generateTable caption headers entries =
         let t1 = fmap unpackEntry entries
         let t2 = fmap (fmap $ enclose "td") t1
         let entriesHTML = concat $ fmap (encloseL "tr") t2
-        indent 0 $ encloseL "table" ([caption] ++ headersHTML ++ entriesHTML)
+        indent 0 $ encloseL "table" ([captionHTML] ++ headersHTML ++ entriesHTML)
     
 
 -- Enclose a String in HTML tags.
