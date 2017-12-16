@@ -11,7 +11,7 @@
 
     Non-base dependencies:
 
-        Data.List.Split (install split)
+        Data.List.Split
 -}
 
 module Main where
@@ -30,15 +30,7 @@ import System.Environment
 import System.FilePath
 import Text.ParserCombinators.ReadP
 
-{- 
-NOTES
 
-fromGregorian :: Integer -> Int -> Int -> Day
-
-    Convert from proleptic Gregorian calendar. First argument is year, 
-    second month number (1-12), third day (1-31). Invalid values will be 
-    clipped to the correct range, month first, then day.
--}
 data Entry = Entry { 
     getDate :: Day,
     getName :: String,
@@ -54,18 +46,14 @@ instance Monoid Day where
 headerFile :: String
 headerFile = "conf/headers.cnf"
 
-
 captionFile :: String
 captionFile = "conf/captions.cnf"
-
 
 inputFile :: String
 inputFile = "data/gig-data.txt"
 
-
 outputFileFuture :: String
 outputFileFuture = "html/gigs-future.html"
-
 
 outputFilePast :: String
 outputFilePast = "html/gigs-past.html"
@@ -208,16 +196,6 @@ parseDay t = case (Data.List.Split.splitOn "." $ t) of
     otherwise    -> mempty
 
 
--- Perform a functor operation to a functor inside a monad.
--- Useful for various IO [Text] objects I'm bound to come across.
---
--- For example:
---
---      fmapM reverse $ readDataToList inputFile
-fmapM :: (Functor f, Monad m) => (f a -> f b) -> m (f a) -> m (f b)
-fmapM op a = a >>= (\b -> return $ op b)
-
-
 -- Filter Entries by field comparison.
 -- getter : getDate, getName or getPlace
 -- comp   : method from Eq typeclass
@@ -272,16 +250,3 @@ indentationChange s = totalTags - closingTags * 2 where
                 else filter' xs
             otherwise -> 
                 filter' xs
-
-
-testHTML = [ 
-    "<html>",
-    "<head>", 
-    "</head>",
-    "<body>",
-    "<p>",
-    "paragraph",
-    "</p>",
-    "</body>",
-    "</html>"]
-
